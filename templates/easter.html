@@ -24,7 +24,7 @@
 
     <script>
         function alerting() {
-            var number11 = 100;
+            {#var number11 = 100;#}
             var number11 = document.getElementById('input').value;
             if ((isNaN(number11) || (Number(number11) <= 0))) { alert('неверный ввод') }
             else if ([11, 12, 13, 14, 15, 16, 17, 18, 19].includes(Number(number11.slice(number11.length - 2, number11.length)))) { alert('Ваш рост: ' + number11 + ' сантиметров') }
