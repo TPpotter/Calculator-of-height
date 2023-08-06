@@ -2,34 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Калькулятор роста</title>
+    <title>Калькулятор роста и массы</title>
     <style>
+
+
     body {
             background-image: url("static/easter_background.png");
             background-repeat:no-repeat;
             background-size:cover;
         }
 
+    .font {
+        font-family: Calibri, Tahoma, "Times New Roman";
+    }
+
     </style>
 </head>
 <body>
-    <center><font size="+6" style="color: red;">КАЛЬКУЛЯТОР РОСТА</font></center>
+    <div class="font">
+    <center><font size="+6" style="color: red;">КАЛЬКУЛЯТОР РОСТА И МАССЫ</font></center>
     <br><br><br><br><br><br><br>
     <center>
-        <h2 style="color: yellow">Введите ваш рост (в сантиметрах)</h2>
-        <input type="text" id="input" style="font-size: 50px; width: 200px; color: black">
-        <br><br>
-        <button onclick="alerting()" style="width: 90px; height: 60px; color: DarkRed">ПОСЧИТАТЬ</button>
+        <div class="height">
+            <h2 style="color: yellow">Введите ваш рост (в сантиметрах)</h2>
+            <input type="text" id="height" style="font-size: 50px; width: 200px; color: black">
+            <br><br>
+            <button onclick="height()" style="width: 100px; height: 60px; color: DarkRed">ПОСЧИТАТЬ</button>
+        </div>
+        <div class="width">
+            <h2 style="color: yellow">Введите вашу массу (в килограммах)</h2>
+            <input type="text" id="width" style="font-size: 50px; width: 200px; color: black">
+            <br><br>
+            <button onclick="width()" style="width: 100px; height: 60px; color: DarkRed">ПОСЧИТАТЬ</button>
+        </div>
     </center>
-
+    </div>
     <script>
-        function alerting() {
-            var number11 = document.getElementById('input').value;
-            if ((isNaN(number11) || (Number(number11) <= 0))) { alert('неверный ввод') }
-            else if (number11[number11.length - 1] === '1') { alert('Ваш рост: ' + number11 + ' сантиметр') }
-            else if (([0, 5, 6, 7, 8, 9].includes(Number(number11[number11.length - 1]))) || ([11, 12, 13, 14, 15, 16, 17, 18, 19].includes(Number(number11.slice(number11.length - 2, number11.length))))) { alert('Ваш рост: ' + number11 + ' сантиметров') }
-            else if ([2, 3, 4].includes(Number(number11[number11.length - 1]))) { alert('Ваш рост: ' + number11 + ' сантиметра') }
-
+        function height() {
+            var height_value = 100;
+            var height_value = document.getElementById('height').value;
+            if ((isNaN(height_value) || (Number(height_value) <= 0))) { alert('Неверный ввод') }
+            else if ([11, 12, 13, 14, 15, 16, 17, 18, 19].includes(Number(height_value.slice(height_value.length - 2, height_value.length)))) { alert('Ваш рост: ' + height_value + ' сантиметров') }
+            else if (height_value[height_value.length - 1] === '1') { alert('Ваш рост: ' + height_value + ' сантиметр') }
+            else if ([0, 5, 6, 7, 8, 9].includes(Number(height_value[height_value.length - 1]))) { alert('Ваш рост: ' + height_value + ' сантиметров') }
+            else if ([2, 3, 4].includes(Number(height_value[height_value.length - 1]))) { alert('Ваш рост: ' + height_value + ' сантиметра') }
+  }
+        function width() {
+            var width_value = 100;
+            var width_value = document.getElementById('width').value;
+            if ((isNaN(width_value) || (Number(width_value) <= 0))) { alert('Неверный ввод') }
+            else if ([11, 12, 13, 14, 15, 16, 17, 18, 19].includes(Number(width_value.slice(width_value.length - 2, width_value.length)))) { alert('Ваш вес: ' + width_value + ' килограмм') }
+            else if (width_value[width_value.length - 1] === '1') { alert('Ваша масса: ' + width_value + ' килограмм') }
+            else if ([0, 5, 6, 7, 8, 9].includes(Number(width_value[width_value.length - 1]))) { alert('Ваша масса: ' + width_value + ' килограмм') }
+            else if ([2, 3, 4].includes(Number(width_value[width_value.length - 1]))) { alert('Ваша масса: ' + width_value + ' килограмм') }
   }
     </script>
 </body>
