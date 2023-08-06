@@ -6,20 +6,20 @@
     <style>
 
 
-    body {
+        body {
             background-image: url("static/easter_background.png");
-            background-repeat:no-repeat;
-            background-size:cover;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
-    .font {
-        font-family: Calibri, Tahoma, "Times New Roman";
-    }
+        .font {
+            font-family: Calibri, Tahoma, "Times New Roman";
+        }
 
     </style>
 </head>
 <body>
-    <div class="font">
+<div class="font">
     <center><font size="+6" style="color: red;">КАЛЬКУЛЯТОР РОСТА И МАССЫ</font></center>
     <br><br><br><br><br><br><br>
     <center>
@@ -27,35 +27,70 @@
             <h2 style="color: yellow">Введите ваш рост (в сантиметрах)</h2>
             <input type="text" id="height" style="font-size: 50px; width: 200px; color: black">
             <br><br>
-            <button onclick="height()" style="width: 100px; height: 60px; color: DarkRed">ПОСЧИТАТЬ</button>
+            <button onclick="everything('height')" style="width: 100px; height: 60px; color: DarkRed">ПОСЧИТАТЬ</button>
         </div>
         <div class="width">
             <h2 style="color: yellow">Введите вашу массу (в килограммах)</h2>
             <input type="text" id="width" style="font-size: 50px; width: 200px; color: black">
             <br><br>
-            <button onclick="width()" style="width: 100px; height: 60px; color: DarkRed">ПОСЧИТАТЬ</button>
+            <button onclick="everything('width')" style="width: 100px; height: 60px; color: DarkRed">ПОСЧИТАТЬ</button>
+        </div>
+        <p></p>
+        <div class="all">
+            <button onclick="everything('all')" style="width: 300px; height: 60px; color: DarkRed">ПОСЧИТАТЬ ВСЁ</button>
         </div>
     </center>
-    </div>
-    <script>
-        function height() {
-            var height_value = 100;
-            var height_value = document.getElementById('height').value;
-            if ((isNaN(height_value) || (Number(height_value) <= 0))) { alert('Неверный ввод') }
-            else if ([11, 12, 13, 14, 15, 16, 17, 18, 19].includes(Number(height_value.slice(height_value.length - 2, height_value.length)))) { alert('Ваш рост: ' + height_value + ' сантиметров') }
-            else if (height_value[height_value.length - 1] === '1') { alert('Ваш рост: ' + height_value + ' сантиметр') }
-            else if ([0, 5, 6, 7, 8, 9].includes(Number(height_value[height_value.length - 1]))) { alert('Ваш рост: ' + height_value + ' сантиметров') }
-            else if ([2, 3, 4].includes(Number(height_value[height_value.length - 1]))) { alert('Ваш рост: ' + height_value + ' сантиметра') }
-  }
-        function width() {
-            var width_value = 100;
-            var width_value = document.getElementById('width').value;
-            if ((isNaN(width_value) || (Number(width_value) <= 0))) { alert('Неверный ввод') }
-            else if ([11, 12, 13, 14, 15, 16, 17, 18, 19].includes(Number(width_value.slice(width_value.length - 2, width_value.length)))) { alert('Ваш вес: ' + width_value + ' килограмм') }
-            else if (width_value[width_value.length - 1] === '1') { alert('Ваша масса: ' + width_value + ' килограмм') }
-            else if ([0, 5, 6, 7, 8, 9].includes(Number(width_value[width_value.length - 1]))) { alert('Ваша масса: ' + width_value + ' килограмм') }
-            else if ([2, 3, 4].includes(Number(width_value[width_value.length - 1]))) { alert('Ваша масса: ' + width_value + ' килограмм') }
-  }
-    </script>
+</div>
+
+
+<script>
+    function height() {
+        var height_value = 100;
+        var height_value = document.getElementById('height').value;
+        if ((isNaN(height_value) || (Number(height_value) <= 0))) {
+            return 'Неверный ввод';
+        } else if ([11, 12, 13, 14, 15, 16, 17, 18, 19].includes(Number(height_value.slice(height_value.length - 2, height_value.length)))) {
+            return 'Ваш рост: ' + height_value + ' сантиметров';
+        } else if (height_value[height_value.length - 1] === '1') {
+            return 'Ваш рост: ' + height_value + ' сантиметр';
+        } else if ([0, 5, 6, 7, 8, 9].includes(Number(height_value[height_value.length - 1]))) {
+            return 'Ваш рост: ' + height_value + ' сантиметров';
+        } else if ([2, 3, 4].includes(Number(height_value[height_value.length - 1]))) {
+            return 'Ваш рост: ' + height_value + ' сантиметра';
+        }
+    }
+
+    function width() {
+        var width_value = 100;
+        var width_value = document.getElementById('width').value;
+        if ((isNaN(width_value) || (Number(width_value) <= 0))) {
+            return 'Неверный ввод';
+        } else if ([11, 12, 13, 14, 15, 16, 17, 18, 19].includes(Number(width_value.slice(width_value.length - 2, width_value.length)))) {
+            return 'Ваш вес: ' + width_value + ' килограмм';
+        } else if (width_value[width_value.length - 1] === '1') {
+            return 'Ваша масса: ' + width_value + ' килограмм';
+        } else if ([0, 5, 6, 7, 8, 9].includes(Number(width_value[width_value.length - 1]))) {
+            return 'Ваша масса: ' + width_value + ' килограмм';
+        } else if ([2, 3, 4].includes(Number(width_value[width_value.length - 1]))) {
+            return 'Ваша масса: ' + width_value + ' килограмм';
+        }
+    }
+
+    function everything(value) {
+        if (value === 'height' ) { alert(height()); }
+        if (value === 'width') { alert(width()); }
+        if (value === 'all') {
+            var h = height();
+            if (h === 'Неверный ввод') {alert(h); return 0;}
+            var w = width()
+            if (w === 'Неверный ввод') {alert(w); return 0;}
+            alert(h + '\n' + w);
+            return 0;
+        }
+    }
+
+</script>
+
+
 </body>
 </html>
